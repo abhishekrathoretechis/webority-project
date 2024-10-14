@@ -12,7 +12,7 @@ import {
   responsiveScreenHeight,
   responsiveScreenWidth,
 } from 'react-native-responsive-dimensions';
-import Eye from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/Feather';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -90,7 +90,17 @@ const LoginScreen = ({navigation}) => {
             onChangeText={setPassword}
           />
           <TouchableOpacity onPress={togglePasswordVisibility}>
-            <Eye name={isPasswordVisible ? 'eye-off' : 'eye'} size={20} />
+            {isPasswordVisible ? (
+              <Image
+                source={require('../../assets/Images/view.png')}
+                style={{height: 25, width: 25}}
+              />
+            ) : (
+              <Image
+                source={require('../../assets/Images/hide.png')}
+                style={{height: 25, width: 25}}
+              />
+            )}
           </TouchableOpacity>
         </View>
       </View>
